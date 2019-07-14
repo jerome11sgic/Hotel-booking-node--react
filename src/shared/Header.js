@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export function Header() {
   return (
     <nav class="navbar navbar-expand-lg navbar-dark">
-      <a class="navbar-brand" href="#">
+      <Link class="navbar-brand" to='/rentals'>
         Book With Me !!!
-      </a>
+      </Link>
 
       <form class="form-inline my-2 my-lg-0">
         <input
@@ -14,11 +15,11 @@ export function Header() {
           placeholder="Search"
           aria-label="Search"
         />
-        <button class="btn btn-outline-success my-2 my-sm-0 btn-bwm-search"  type="submit">
+        <button class="btn btn-outline-success my-2 my-sm-0 btn-bwm-search" type="submit">
           Search
         </button>
-          </form>
-          
+      </form>
+
       <button
         class="navbar-toggler"
         type="button"

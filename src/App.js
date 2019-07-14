@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import { Header } from './shared/Header';
-import RentalList from "./components/rental/RentalList";
-import RentalDetail from "./components/rental/RentalDetail";
-import Login from './components/login/Login';
-import Register from './components/register/Register';
+import { Header } from 'shared/Header';
+import RentalList from "components/rental/rental-listing/RentalList";
+import RentalDetail from "components/rental/rental-detail/RentalDetail";
+import Login from 'components/login/Login';
+import Register from 'components/register/Register';
 
-import './App.css';
+import 'App.css';
 
 
 const store = require('./reducers').init();

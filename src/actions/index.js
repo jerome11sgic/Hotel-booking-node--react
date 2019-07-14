@@ -1,5 +1,5 @@
 
-import { FETCH_RENTALS, FETCH_RENTAL_BY_ID } from './types';
+import { FETCH_RENTALS, FETCH_RENTAL_BY_ID_SUCCESS, FETCH_RENTAL_BY_ID_INIT } from './types';
 
 const rentals = [
     {
@@ -7,7 +7,7 @@ const rentals = [
         title: "Nice view on ocean",
         city: "Jaffna",
         street: "Thirunelvely",
-        catergory: "Condo",
+        catergory: "condo",
         image: "http://via.placeholder.com/350x250",
         bedrooms: 4,
         description: "very nice apartment",
@@ -18,7 +18,7 @@ const rentals = [
         title: "Nice house",
         city: "Vavuniya",
         street: "School street",
-        catergory: "Small",
+        catergory: "house",
         image: "http://via.placeholder.com/350x250",
         bedrooms: 5,
         description: "very nice apartment",
@@ -29,7 +29,18 @@ const rentals = [
         title: "Nice Place",
         city: "Jaffna",
         street: "School street",
-        catergory: "Small",
+        catergory: "house",
+        image: "http://via.placeholder.com/350x250",
+        bedrooms: 5,
+        description: "very nice apartment",
+        dailyRate: 43
+    },
+    {
+        id: "3",
+        title: "Nice Place",
+        city: "Jaffna",
+        street: "School street",
+        catergory: "apartment",
         image: "http://via.placeholder.com/350x250",
         bedrooms: 5,
         description: "very nice apartment",
@@ -37,6 +48,18 @@ const rentals = [
     }
 ];
 
+const fetchRentalByIdInit = () => {
+    return {
+        type: FETCH_RENTAL_BY_ID_INIT
+    }
+}
+
+const fetchRentalByIdSuccess = (rental) => {
+    return {
+        type: FETCH_RENTAL_BY_ID_SUCCESS,
+        rental
+    }
+}
 
 export const fetchRentals = () => {
     return {
@@ -47,8 +70,15 @@ export const fetchRentals = () => {
 
 export const fetchRentalById = (rentalId) => {
     const rental = rentals.find((rental) => rental.id === rentalId);
-    return {
-        type: FETCH_RENTAL_BY_ID,
-        rental
+
+    return function (dispatch) {
+        dispatch(fetchRentalByIdInit());
+
+        //Simulate server call
+        setTimeout(() => {
+            const rental = rentals.find((rental) => rental.id === rentalId);
+            dispatch(fetchRentalByIdSuccess(rental));
+        }, 1000)
     }
+
 }
