@@ -17,7 +17,7 @@ mongoose.connect(config.DB_URL).then(() => {
 const app = express();
 app.use(bodyParser.json());
 app.use('/api/v1/users', userRoutes);
-app.use('/api/v1/rental', rentalRoutes);
+app.use('/api/v1/rentals', rentalRoutes);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, function () {
