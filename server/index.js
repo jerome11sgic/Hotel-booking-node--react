@@ -3,8 +3,9 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const config = require('./config/dev');
 const FakeDb = require('./fake-db');
-const userRoutes = require('./routes/users');
-const rentalRoutes = require('./routes/rentals')
+
+const userRoutes = require('./routes/users'),
+  rentalRoutes = require('./routes/rentals');
 
 
 mongoose.connect(config.DB_URL).then(() => {
